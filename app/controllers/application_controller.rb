@@ -37,4 +37,20 @@ class ApplicationController < Sinatra::Base
     erb :login
   end
 
+  post '/login' do
+    if user_params_blank?(params)
+      #look at throwing a flash message here "Field cannot be blank, try again"
+      redirect "/login"
+    elsif
+      User.find_by(:name => params[:username]) == nil
+      #Flash message: "User not found, please try again"
+      redirect "/login"
+    else
+      user = User.find_by(:name => params[:username])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        erb :"/user/profile"
+      end
+    end
+  end
 end

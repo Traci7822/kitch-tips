@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
     else
       user = User.create(name: params[:username], email: params[:email], password: params[:password])
       session[:user_id] = user.id
-      redirect "/tips"
+      redirect "/user"
     end
   end
 

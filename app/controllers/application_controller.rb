@@ -8,6 +8,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "kitchtipsaregreat"
   end
 
+  include Validify::InstanceMethods
+
   get '/' do
     erb :index
   end
@@ -17,7 +19,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-    binding.pry
+    if user_params_blank?(params)
+      #look at throwing a flash message here
+      redirect '/signup'
+    else
+      user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    end
   end
 
 end

@@ -19,7 +19,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/signup' do
-    if user_params_blank?(params)
+    if params_blank?(params)
       #look at throwing a flash message here "Field cannot be blank, try again"
       redirect '/signup'
     elsif
@@ -38,7 +38,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    if user_params_blank?(params)
+    if params_blank?(params)
       #look at throwing a flash message here "Field cannot be blank, try again"
       redirect "/login"
     elsif
@@ -51,6 +51,16 @@ class ApplicationController < Sinatra::Base
         session[:user_id] = @user.id
         erb :"/user/profile"
       end
+    end
+  end
+
+  helpers do
+    def current_user(session)
+      User.find_by_id(session[:user_id])
+    end
+
+    def logged_in?(session)
+      !!current_user(session)
     end
   end
 end

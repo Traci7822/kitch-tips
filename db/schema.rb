@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160918210341) do
   create_table "tips", force: :cascade do |t|
     t.string  "name"
     t.string  "main_ingredient"
+    t.string  "tip"
     t.integer "user_id"
   end
 

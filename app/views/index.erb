@@ -20,6 +20,9 @@
 
       <div class="recent_tips">
         <h2>Most Recent Tips</h2>
+        <%  @recent_tips.each.with_index do |tip, i| %>
+          <h3><%= i + 1 %>. <%= tip.tip %></h3>
+        <% end %>
         <!--show 5ish most recent tips here -->
         <hr width="75%">
       </div>
@@ -34,7 +37,7 @@
           <a href="/p">P</a> | <a href="/q">Q</a> | <a href="/r">R</a> |
           <a href="/s">S</a> | <a href="/t">T</a> | <a href="/u">U</a> |
           <a href="/v">V</a> | <a href="/w">W</a> | <a href="/x">X</a> |
-          <a href="/y">Y</a> | <a href="/z">Z</a>     
+          <a href="/y">Y</a> | <a href="/z">Z</a>
       </div>
     </body>
   </html>

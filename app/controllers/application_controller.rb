@@ -49,9 +49,14 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by(:name => params[:username])
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
-        erb :"/user/profile"
+        erb :"user/profile"
       end
     end
+  end
+
+  get '/logout' do
+    session.clear
+    erb :index
   end
 
   helpers do

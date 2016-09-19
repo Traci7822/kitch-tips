@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   get '/user' do
     if logged_in?(session)
       @user = current_user(session)
-      binding.pry
       erb :"/user/profile"
     else
       erb :login

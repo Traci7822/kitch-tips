@@ -46,9 +46,9 @@ class ApplicationController < Sinatra::Base
       #Flash message: "User not found, please try again"
       redirect "/login"
     else
-      user = User.find_by(:name => params[:username])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
+      @user = User.find_by(:name => params[:username])
+      if @user && @user.authenticate(params[:password])
+        session[:user_id] = @user.id
         erb :"/user/profile"
       end
     end

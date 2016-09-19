@@ -2,7 +2,13 @@ class UsersController < ApplicationController
 
   get '/user' do
     if logged_in?(session)
+      @user_tips = []
       @user = current_user(session)
+      Tip.all.each do |tip|
+        if tip.user_id == @user.id
+          @user_tips << tip
+        end
+      end
       erb :"/user/profile"
     else
       erb :login

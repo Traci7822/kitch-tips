@@ -1,20 +1,29 @@
 <!DOCTYPE html>
   <html>
     <head>
-      <h1>Hello <%= @user.name %>!</h1>
-      <hr width="75%">
+      <div class="greeting" align="center">
+        <h1>Hello <%= @user.name %>!</h1>
+        <hr width="75%">
+      </div>
     </head>
 
     <body>
-      <div class="create_tip">
+      <div class="create_tip" align="center">
         <h3><a href="/new">Add a new tip to Kitch-Tips!</a></h3>
-      </div>
-
-      <div class="user_tips">
         <hr width="75%">
       </div>
 
-      <div class="logout">
+      <div class="user_tips" align="center">
+        <div class="col-wrapper">
+          <h2>Your Kitch-Tips: </h2>
+          <div class="col-md-6"><h3>tip #1</h3></div>
+          <div class="col-md-6"><h3>tip #2</h3></div>
+          <div class="col-md-6"><h3>tip #3</h3></div>
+        </div>
+        <hr width="75%">
+      </div>
+
+      <div class="logout" align="center">
         <h3><a href="/logout">Log Out</a> of your account</h3>
       </div>
     </body>

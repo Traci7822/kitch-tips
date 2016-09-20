@@ -16,7 +16,7 @@
       </div>
 
       <div class="edit_tip" align="center">
-        <form input="post" action="/<%= @tip.id %>/edit">
+        <form method="post" action="/tip/<%= @tip.id %>">
           <input type="hidden" name="_method" value="patch">
           <h3>Change Tip Name: <input type="text" name="name"></h3>
           <h3>Change Main Ingredient: <input type="text" name="main_ingredient"></h3>

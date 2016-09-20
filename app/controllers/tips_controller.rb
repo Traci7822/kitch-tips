@@ -30,4 +30,7 @@ class TipsController < ApplicationController
      end
    end
 
+   get '/a_z_index' do
+     erb :a_z_index
+   end
  end

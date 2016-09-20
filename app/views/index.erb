@@ -20,7 +20,7 @@
 
       <div class="recent_tips">
         <h2>Most Recent Tips</h2>
-        <%  @recent_tips.each.with_index do |tip, i| %>
+        <%  @recent_tips.reverse.each.with_index do |tip, i| %>
           <h3><%= i + 1 %>. <%= tip.tip %></h3>
         <% end %>
         <hr width="75%">

@@ -19,4 +19,15 @@ class TipsController < ApplicationController
      end
    end
 
+   delete '/tip/:id/delete' do
+     #Flash message: Are you sure you want to delete this tip? Yes or Go back
+     if logged_in?(session)
+       tip = Tip.find_by(id: params[:id])
+       tip.delete
+       redirect "/user"
+     else
+       redirect "/login"
+     end
+   end
+
  end

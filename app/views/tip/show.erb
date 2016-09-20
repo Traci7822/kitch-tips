@@ -8,5 +8,24 @@
     </head>
 
     <body>
+      <div class="current_tip" align="center">
+        <h3>Tip Name: <%= @tip.name %></h3>
+        <h3>Main Ingredient: <%= @tip.main_ingredient %></h3>
+        <h3>Kitch-Tip: <%= @tip.tip %></h3>
+        <hr width="75%">
+      </div>
+
+      <div class="edit_tip" align="center">
+        <form input="post" action="/<%= @tip.id %>/edit">
+          <input type="hidden" name="_method" value="patch">
+          <h3>Change Tip Name: <input type="text" name="name"></h3>
+          <h3>Change Main Ingredient: <input type="text" name="main_ingredient"></h3>
+          <h3>Change Tip Description: </h3><textarea rows=6 cols=50 type="text" name="tip"></textarea>
+          <br></br>
+          <input type="submit" value="Submit Changes">
+        </form>
+        <h4>or</h4>
+        <a href="/user">Go Back</a>
+      </div>
     </body>
   </html>
